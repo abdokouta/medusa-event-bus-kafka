@@ -129,7 +129,7 @@ class RedisService {
                     subscriber.error(err);
                 }
                 else {
-                    console.log(`Subscribed to ${count} topic(s)`);
+                    this.logger.info(`Subscribed to ${count} topic(s)`);
                 }
             });
             const messageSubscriber = (topic, message) => {
@@ -139,7 +139,7 @@ class RedisService {
             };
             this.redisClient.on("message", messageSubscriber);
             return async () => {
-                console.log(`Unsubscribed from ${topic}`);
+                this.logger.info(`Unsubscribed from ${topic}`);
                 this.redisClient.unsubscribe(topic);
                 this.redisClient.removeListener("message", messageSubscriber);
             };

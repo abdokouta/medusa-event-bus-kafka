@@ -75,8 +75,6 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
         this.logger_ = logger;
         this.moduleOptions_ = moduleOptions;
         this.kafkaService = kafkaService;
-        console.log("moduleOptions ====>", moduleOptions);
-        console.log("moduleOptions ====>", JSON.stringify(moduleOptions));
         this.queue_ = new bullmq_1.Queue(moduleOptions.queueName ?? `events-queue`, {
             prefix: `${this.constructor.name}`,
             ...(moduleOptions.queueOptions ?? {}),
