@@ -12,7 +12,7 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
      * @param moduleDeclaration - Internal module declaration.
      * @param injectedDependencies - Injected dependencies like logger and Kafka connection.
      */
-    constructor(moduleOptions, moduleDeclaration, { logger, kafkaService, redisService }) {
+    constructor({ logger, kafkaService, redisService }, moduleOptions = {}, moduleDeclaration) {
         super();
         /**
          * Worker method for processing jobs.

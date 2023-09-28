@@ -5,6 +5,7 @@ import { Queue } from "bullmq";
 import { KafkaService } from "./kafka.service";
 import { BullJob } from "../types/bull-job.type";
 import { InjectedDependencies } from "../types/injected-dependencies.type";
+import { KafkaModuleOptions } from "../types/event-bus-module-options.type";
 /**
  * 🚀 KafkaEventBusService handles event emission and processing using Kafka and BullMQ.
  */
@@ -20,7 +21,7 @@ export default class KafkaEventBusService extends AbstractEventBusModuleService 
      * @param moduleDeclaration - Internal module declaration.
      * @param injectedDependencies - Injected dependencies like logger and Kafka connection.
      */
-    constructor(moduleOptions: any, moduleDeclaration: InternalModuleDeclaration, { logger, kafkaService, redisService }: InjectedDependencies);
+    constructor({ logger, kafkaService, redisService }: InjectedDependencies, moduleOptions: KafkaModuleOptions | undefined, moduleDeclaration: InternalModuleDeclaration);
     /**
      * Emit method overloads for emitting events.
      * @param eventName - The name of the event.
