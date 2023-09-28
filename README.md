@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.medusajs.com">
-    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />  <img alt="Medusa" src="https://www.vhv.rs/dpng/d/453-4535933_plus-icon-white-png-transparent-png.png" width="100" /> <img alt="Medusa" src="https://i.ibb.co/vc7ZhRn/Kafka.png" width="100" />
+    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />  <img alt="Medusa" style="vertical-align: middle" src="https://i.ibb.co/0fPtJwx/vecteezy-button-plus-icon-sign-symbol-design-10150250-927.png" width="20" /> <img alt="Medusa" src="https://i.ibb.co/vc7ZhRn/Kafka.png" width="100" />
   </a>
 </p>
 <h1 align="center">
@@ -73,23 +73,23 @@ module.exports = {
 
 The module can be configured with the following options:
 
-| Option                   | Type                                  | Description                                                                                                                | Default        
+| Option                   | Type                                  | Description                                                                                                                | Default
 | ------------------------ | --------------------------------------| -------------------------------------------------------------------------------------------------------------------------- | ---------------
 | `queueName`              | `string?`                             | Name of the BullMQ queue.                                                                                                  | `"events-queue"
-| `queueOptions`           | `QueueOptions?`                       | Options for configuring the BullMQ queue. See BullMQ's [documentation](https://api.docs.bullmq.io/interfaces/QueueOptions.html). | `{}`           
-| `workerOptions`          | `WorkerOptions?`                      | Options for configuring the BullMQ worker.                                                                                  | `{}`           
-| `brokers`                | `string[]?`                           | An array of Kafka broker addresses.                                                                                         | `[]`           
-| `ssl`                    | `tls.ConnectionOptions | boolean?`     | SSL options for connecting to Kafka.                                                                                       | `false`        
-| `sasl`                   | `SaslOptions?`                        | Options for SASL authentication with Kafka.                                                                                  | `{}`           
+| `queueOptions`           | `QueueOptions?`                       | Options for configuring the BullMQ queue. See BullMQ's [documentation](https://api.docs.bullmq.io/interfaces/QueueOptions.html). | `{}`
+| `workerOptions`          | `WorkerOptions?`                      | Options for configuring the BullMQ worker.                                                                                  | `{}`
+| `brokers`                | `string[]?`                           | An array of Kafka broker addresses.                                                                                         | `[]`
+| `ssl`                    | `tls.ConnectionOptions | boolean?`     | SSL options for connecting to Kafka.                                                                                       | `false`
+| `sasl`                   | `SaslOptions?`                        | Options for SASL authentication with Kafka.                                                                                  | `{}`
 | `clientId`               | `string?`                             | Client identifier used for connecting to Kafka.                                                                              | `"kafka-client"`
-| `connectionTimeout`      | `number?`                             | Timeout for establishing a connection to Kafka (in milliseconds).                                                            | `10000`        
-| `authenticationTimeout`  | `number?`                             | Timeout for authentication with Kafka (in milliseconds).                                                                    | `10000`        
-| `reauthenticationThreshold` | `number?`                          | Threshold for re-authentication with Kafka (in milliseconds).                                                                | `3600000`      
-| `requestTimeout`         | `number?`                             | Timeout for Kafka request/response operations (in milliseconds).                                                             | `30000`        
-| `enforceRequestTimeout`  | `boolean?`                            | Enforce request timeout, causing requests to fail if they exceed the specified timeout.                                  | `true`         
+| `connectionTimeout`      | `number?`                             | Timeout for establishing a connection to Kafka (in milliseconds).                                                            | `10000`
+| `authenticationTimeout`  | `number?`                             | Timeout for authentication with Kafka (in milliseconds).                                                                    | `10000`
+| `reauthenticationThreshold` | `number?`                          | Threshold for re-authentication with Kafka (in milliseconds).                                                                | `3600000`
+| `requestTimeout`         | `number?`                             | Timeout for Kafka request/response operations (in milliseconds).                                                             | `30000`
+| `enforceRequestTimeout`  | `boolean?`                            | Enforce request timeout, causing requests to fail if they exceed the specified timeout.                                  | `true`
 | `retry`                  | `RetryOptions?`                       | Options for retrying Kafka operations.                                                                                     | `{ retries: 5 }
-| `socketFactory`          | `ISocketFactory?`                     | Custom socket factory for Kafka connections.                                                                               | `undefined`    
-| `logLevel`               | `logLevel?`                           | Log level for Kafka-related logs.                                                                                          | `undefined`    
+| `socketFactory`          | `ISocketFactory?`                     | Custom socket factory for Kafka connections.                                                                               | `undefined`
+| `logLevel`               | `logLevel?`                           | Log level for Kafka-related logs.                                                                                          | `undefined`
 | `logCreator`             | `logCreator?`                         | Custom log creator for Kafka-related logs.                                                                                 | `undefined`           |
 
 **Info**: See how the options are applied in the [KafkaEventBusService](https://github.com/abdokouta/medusa-event-bus-kafka/blob/main/dist/types/event-bus-module-options.type.d.ts#L28) and [loader](https://github.com/abdokouta/medusa-event-bus-kafka/blob/main/dist/loaders/index.d.ts).
