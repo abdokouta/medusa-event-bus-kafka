@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.medusajs.com">
-    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />  <img alt="Medusa" style="vertical-align: middle" src="https://i.ibb.co/0fPtJwx/vecteezy-button-plus-icon-sign-symbol-design-10150250-927.png" width="20" /> <img alt="Medusa" src="https://i.ibb.co/vc7ZhRn/Kafka.png" width="100" />
+    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />    <img alt="Medusa" src="https://i.ibb.co/vc7ZhRn/Kafka.png" width="100" />
   </a>
 </p>
 <h1 align="center">
