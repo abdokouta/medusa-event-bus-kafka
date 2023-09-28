@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.medusajs.com">
-    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />
+    <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" /> + <img alt="Medusa" src="https://i.ibb.co/PrjLgnL/kafka-svgrepo-com.png" width="100" />
   </a>
 </p>
 <h1 align="center">
@@ -76,4 +76,4 @@ The module can be configured with the following options:
 
 **Info**: See how the options are applied in the [RedisEventBusService](https://github.com/medusajs/medusa/blob/0c1d1d590463fa30b083c4312293348bdf6596be/packages/event-bus-redis/src/services/event-bus-redis.ts#L52) and [loader](https://github.com/medusajs/medusa/blob/0c1d1d590463fa30b083c4312293348bdf6596be/packages/event-bus-redis/src/loaders/index.ts).
 
-If you do not provide a `redisUrl` in the module options, the server will fail to start. 
+If you do not provide a `redisUrl` in the module options, the server will fail to start.
