@@ -20,7 +20,8 @@
     "prepublishOnly": "cross-env NODE_ENV=production tsc --build",
     "build": "rimraf dist && tsc --build",
     "test": "jest --passWithNoTests",
-    "prepare": "cross-env NODE_ENV=production npm run build"
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "format": "prettier --write \"src/**/*.{js,ts}\""
   },
   "dependencies": {
     "@medusajs/modules-sdk": "^1.8.8",
