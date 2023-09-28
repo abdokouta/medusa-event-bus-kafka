@@ -1,6 +1,5 @@
 {
   "name": "@medusajs/event-bus-kafka",
-  "version": "1.0.0",
   "description": "Kafka Event Bus Module for Medusa",
   "main": "dist/index.js",
   "files": [
