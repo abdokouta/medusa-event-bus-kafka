@@ -15,6 +15,9 @@
   },
   "author": "Pixiedia",
   "license": "MIT",
+  "keywords": [
+    "medusa-plugin-notification"
+  ],
   "scripts": {
     "watch": "tsc --build --watch",
     "prepublishOnly": "cross-env NODE_ENV=production tsc --build",
