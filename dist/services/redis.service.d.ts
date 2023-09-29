@@ -7,9 +7,9 @@ export declare class RedisService {
     private readonly redisClient;
     /**
      * Initializes the Redis service. 🚀
-     * @param logger - The logger instance.
+     * @param loggerService - The loggerService instance.
      */
-    constructor(logger: any);
+    constructor(loggerService: any);
     /**
      * 🌐 Connects to the Redis broker.
      */

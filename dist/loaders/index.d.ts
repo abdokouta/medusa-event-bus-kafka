@@ -5,5 +5,5 @@ import { LoaderOptions } from "@medusajs/modules-sdk";
  * @param {LoaderOptions} options - Loader options.
  * @returns {Promise<void>} A promise that resolves when the connection is established.
  */
-declare const _default: ({ container, logger, options, }: LoaderOptions) => Promise<void>;
+declare const _default: ({ container, logger: loggerService, options: configService, }: LoaderOptions) => Promise<void>;
 export default _default;

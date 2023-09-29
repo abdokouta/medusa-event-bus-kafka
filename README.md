@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  @medusajs/event-bus-kafka
+  @medusajs/module-event-bus-kafka
 </h1>
 
 <h4 align="center">
@@ -43,7 +43,7 @@ Kafka Event Bus module for Medusa. When installed, the events system of Medusa i
 Install the module:
 
 ```bash
-yarn add @medusajs/event-bus-kafka
+yarn add @medusajs/module-event-bus-kafka
 ```
 
 Add the module to your `medusa-config.js`:
@@ -53,7 +53,7 @@ module.exports = {
   // ...
   modules: [
     {
-      resolve: "@medusajs/event-bus-kafka",
+      resolve: "@medusajs/module-event-bus-kafka",
       options: {
         brokers: KAFKA_BROKERS,
         logLevel: KAFKA_LOG_LEVEL,

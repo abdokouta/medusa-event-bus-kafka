@@ -8,10 +8,10 @@ export declare class KafkaService {
     private readonly kafkaClient;
     /**
      * Initializes the Kafka service. 🚀
-     * @param moduleConfig - The module configuration.
-     * @param logger - The logger instance.
+     * @param configService - The module configuration.
+     * @param loggerService - The loggerService instance.
      */
-    constructor(moduleConfig: any, logger: any);
+    constructor(configService: any, loggerService: any);
     /**
      * 🌐 Connects to the Kafka broker.
      */

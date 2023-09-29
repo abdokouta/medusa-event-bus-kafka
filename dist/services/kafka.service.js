@@ -10,12 +10,12 @@ const config_1 = require("../config");
 class KafkaService {
     /**
      * Initializes the Kafka service. 🚀
-     * @param moduleConfig - The module configuration.
-     * @param logger - The logger instance.
+     * @param configService - The module configuration.
+     * @param loggerService - The loggerService instance.
      */
-    constructor(moduleConfig, logger) {
-        this.logger = logger;
-        this.kafkaClient = new kafkajs_1.Kafka((0, config_1.kafkaClientOptions)(moduleConfig));
+    constructor(configService, loggerService) {
+        this.logger = loggerService;
+        this.kafkaClient = new kafkajs_1.Kafka((0, config_1.kafkaClientOptions)(configService));
         this.kafkaProducer = this.kafkaClient.producer();
     }
     /**

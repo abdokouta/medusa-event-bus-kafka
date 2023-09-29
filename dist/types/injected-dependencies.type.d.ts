@@ -6,9 +6,9 @@ import { KafkaService } from "../services";
  */
 export type InjectedDependencies = {
     /**
-     * The logger instance used for logging within the service. 📝
+     * The loggerService instance used for logging within the service. 📝
      */
-    logger: Logger;
+    loggerService: Logger;
     /**
      * The Kafka service instance for connecting to the Kafka broker. 🌐
      */

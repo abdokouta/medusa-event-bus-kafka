@@ -10,9 +10,9 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
      * Creates an instance of KafkaEventBusService.
      * @param moduleOptions - Options for configuring KafkaEventBusService.
      * @param moduleDeclaration - Internal module declaration.
-     * @param injectedDependencies - Injected dependencies like logger and Kafka connection.
+     * @param injectedDependencies - Injected dependencies like loggerService and Kafka connection.
      */
-    constructor({ logger, kafkaService, redisService }, moduleOptions = {}, moduleDeclaration) {
+    constructor({ loggerService, kafkaService, redisService }, moduleOptions = {}, moduleDeclaration) {
         super();
         /**
          * Worker method for processing jobs.
@@ -33,12 +33,12 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
             const isFinalAttempt = currentAttempt === configuredAttempts;
             if (isRetry) {
                 if (isFinalAttempt) {
-                    this.logger_.info(`Final retry attempt for ${eventName}`);
+                    this.logger.info(`Final retry attempt for ${eventName}`);
                 }
-                this.logger_.info(`Retrying ${eventName} which has ${eventSubscribers.length} subscribers (${subscribersInCurrentAttempt.length} of them failed)`);
+                this.logger.info(`Retrying ${eventName} which has ${eventSubscribers.length} subscribers (${subscribersInCurrentAttempt.length} of them failed)`);
             }
             else {
-                this.logger_.info(`Processing ${eventName} which has ${eventSubscribers.length} subscribers`);
+                this.logger.info(`Processing ${eventName} which has ${eventSubscribers.length} subscribers`);
             }
             const completedSubscribersInCurrentAttempt = [];
             const subscribersResult = await Promise.all(subscribersInCurrentAttempt.map(async ({ id, subscriber }) => {
@@ -48,7 +48,7 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
                     return data;
                 })
                     .catch((err) => {
-                    this.logger_.warn(`An error occurred while processing ${eventName}: ${err}`);
+                    this.logger.warn(`An error occurred while processing ${eventName}: ${err}`);
                     return err;
                 });
             }));
@@ -64,15 +64,15 @@ class KafkaEventBusService extends utils_1.AbstractEventBusModuleService {
                 job.data.completedSubscriberIds = updatedCompletedSubscribers;
                 await job.update(job.data);
                 const errorMessage = `One or more subscribers of ${eventName} failed. Retrying...`;
-                this.logger_.warn(errorMessage);
+                this.logger.warn(errorMessage);
                 return Promise.reject(Error(errorMessage));
             }
             if (didSubscribersFail && !isFinalAttempt) {
-                this.logger_.warn(`One or more subscribers of ${eventName} failed. Retrying is not configured. Use 'attempts' option when emitting events.`);
+                this.logger.warn(`One or more subscribers of ${eventName} failed. Retrying is not configured. Use 'attempts' option when emitting events.`);
             }
             return Promise.resolve(subscribersResult);
         };
-        this.logger_ = logger;
+        this.logger = loggerService;
         this.moduleOptions_ = moduleOptions;
         this.kafkaService = kafkaService;
         this.queue_ = new bullmq_1.Queue(moduleOptions.queueName ?? `events-queue`, {

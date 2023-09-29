@@ -10,10 +10,10 @@ const config_1 = require("../config");
 class RedisService {
     /**
      * Initializes the Redis service. 🚀
-     * @param logger - The logger instance.
+     * @param loggerService - The loggerService instance.
      */
-    constructor(logger) {
-        this.logger = logger;
+    constructor(loggerService) {
+        this.logger = loggerService;
         this.redisClient = new ioredis_1.Redis((0, config_1.redisClientOptions)());
     }
     /**

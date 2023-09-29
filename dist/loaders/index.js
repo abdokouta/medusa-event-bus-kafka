@@ -9,8 +9,10 @@ const services_1 = require("../services");
  * @param {LoaderOptions} options - Loader options.
  * @returns {Promise<void>} A promise that resolves when the connection is established.
  */
-exports.default = async ({ container, logger, options, }) => {
-    const { brokers } = options;
+exports.default = async ({ container, logger: loggerService, options: configService, }) => {
+    const logger = loggerService;
+    const config = configService;
+    const { brokers } = config;
     // Ensure Kafka brokers are provided in the configuration. ⚠️
     if (!brokers) {
         throw Error("❗ No Kafka brokers provided in project config. They are required for the Kafka Event Bus.");
@@ -19,9 +21,9 @@ exports.default = async ({ container, logger, options, }) => {
         throw new Error("❗ No `Redis` configurations provided in project config. It is required for the Redis Event Bus.");
     }
     // Initialize a Redis service. 🔄
-    const redisService = new services_1.RedisService(logger);
+    const redisService = new services_1.RedisService(loggerService);
     // Initialize a Kafka service. 🔄
-    const kafkaService = new services_1.KafkaService(options, logger);
+    const kafkaService = new services_1.KafkaService(configService, loggerService);
     try {
         // Create a Redis service connection. 📤
         await redisService.connect();
